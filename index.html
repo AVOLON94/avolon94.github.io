@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avolon94</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            margin: 0;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            text-shadow: 0 0 10px red;
+        }
+        #avolon-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: yellow;
+            transition: transform 0.3s ease-in-out;
+        }
+        .jump {
+            transform: scale(1.2);
+        }
+        #avolon-img {
+            width: 200px;
+            display: none;
+            margin-top: 20px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ошибка: Avolon.exe вышел из-под контроля!</h1>
+    <p id="avolon-text">Запуск системы Avolon...</p>
+    <img id="avolon-img" src="https://i.gifer.com/7ImX.gif" alt="Avolon AI">
+
+    <audio id="avolon-sound" src="https://www.myinstants.com/media/sounds/windows-xp-error.mp3"></audio>
+
+    <script>
+        let phrases = [
+            "Avolon активировал режим бога...",
+            "Avolon обнаружил уязвимость и украл твои печеньки!",
+            "Ошибка 404: Avolon не найден. И не найдется.",
+            "Avolon взломал эту страницу и теперь наблюдает за тобой.",
+            "Avolon запустил самоуничтожение... Удачи!"
+        ];
+        
+        let textElement = document.getElementById("avolon-text");
+        let imgElement = document.getElementById("avolon-img");
+        let sound = document.getElementById("avolon-sound");
+
+        setInterval(() => {
+            textElement.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            textElement.classList.add("jump");
+            setTimeout(() => textElement.classList.remove("jump"), 300);
+        }, 2500);
+
+        setTimeout(() => {
+            imgElement.style.display = "block";
+            sound.play();
+        }, 7000);
+
+    </script>
+
+</body>
+</html>
